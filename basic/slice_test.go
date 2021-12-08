@@ -2,6 +2,7 @@ package basic
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -31,5 +32,7 @@ func TestSlice(t *testing.T) {
 	var a = []string{"stu", "tom", "t001"}
 	var b = []string{"stu", "tom", "t001"}
 	result := SliceEqual(a, b)
-	fmt.Println(result)
+	// go 语言中可以使用反射 reflect.DeepEqual(a, b) 判断 a、b 两个切片是否相等，但是通常不推荐这么做，使用反射非常影响性能
+	res := reflect.DeepEqual(a, b)
+	fmt.Println(result, res)
 }
